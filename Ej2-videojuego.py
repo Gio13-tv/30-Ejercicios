@@ -25,12 +25,15 @@ class Enemigo(Personaje): # subclase
         print(f"¡El {self.tipo} {self.nombre} grita de dolor!")
 
 
-# Salidas
-jugador1 = Jugador("Betito", 13, "Guerrero")
-enemigo1 = Enemigo("Antrax", 9, "Dragon")
+# Salidas con polimorfismo ------
+personajes = [
+    Jugador("Betito", 13, "Guerrero"),
+    Enemigo("Antrax", 9, "Dragon")
+]
 
-jugador1.atacar()
-jugador1.usarHabilidadEspecial()
+for p in personajes:
+    p.atacar()  # polimorfismo en accion
 
-enemigo1.atacar()
-enemigo1.gritar()
+# Uso de métodos especificos
+personajes[0].usarHabilidadEspecial()
+personajes[1].gritar()
