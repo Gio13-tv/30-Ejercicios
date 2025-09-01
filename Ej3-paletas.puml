@@ -1,4 +1,4 @@
-@startuml name
+@startuml polimorfismo3
 class Paleta {
   - sabor : str
   - precio : float
@@ -6,12 +6,12 @@ class Paleta {
 }
 
 class PaletaAgua {
-  - baseAgua : str
+  - baseAgua : bool
   + mostrarBaseAgua() : void
 }
 
 class PaletaCrema {
-  - cremosa : str
+  - cremosa : bool
   + mostrarTexturaCremosa() : void
 }
 
