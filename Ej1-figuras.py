@@ -36,12 +36,10 @@ class Triangulo(FiguraGeometrica): # subclase
     
 # todas las subclases llaman a la clase padre y sobrescriben el metodo calcularArea
 
-# salidas
-figuras = [
-    Circulo(6),
-    Rectangulo(2, 8),
-    Triangulo(4, 8)
-]
+# salidas con polimorfismo
+figuras = [Circulo(6), Rectangulo(2, 8), Triangulo(4, 8)]
 
-for figura in figuras: # 
-    print(f"El área del {figura.nombre} es: {figura.calcularArea():.2f}")
+print("Tabla de Áreas de Figuras")
+print("--------------------------")
+for f in figuras:
+    print(f"{f.nombre} | Área = {f.calcularArea():.2f}")
