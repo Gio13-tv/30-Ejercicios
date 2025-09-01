@@ -1,0 +1,20 @@
+@startuml name
+class Paleta {
+  - sabor : str
+  - precio : float
+  + mostrarInformacion() : void
+}
+
+class PaletaAgua {
+  - baseAgua : str
+  + mostrarBaseAgua() : void
+}
+
+class PaletaCrema {
+  - cremosa : str
+  + mostrarTexturaCremosa() : void
+}
+
+Paleta <|-- PaletaAgua
+Paleta <|-- PaletaCrema
+@enduml
