@@ -1,0 +1,46 @@
+@startuml pozole
+
+interface Calculable {
+  + calcularArea()
+  + calcularPerimetro()
+}
+
+abstract class FiguraGeometrica {
+  - nombre: String
+  + __init__(nombre: String)
+  + calcularArea()
+  + calcularPerimetro()
+  + mostrarInformacion()
+}
+
+class Circulo {
+  - radio: float
+  + __init__(radio: float)
+  + calcularArea()
+  + calcularPerimetro()
+}
+
+class Rectangulo {
+  - base: float
+  - altura: float
+  + __init__(base: float, altura: float)
+  + calcularArea()
+  + calcularPerimetro()
+}
+
+class Triangulo {
+  - base: float
+  - altura: float
+  - lado2: float
+  - lado3: float
+  + __init__(base: float, altura: float, lado2: float, lado3: float)
+  + calcularArea()
+  + calcularPerimetro()
+}
+
+Calculable <|.. FiguraGeometrica
+FiguraGeometrica <|-- Circulo
+FiguraGeometrica <|-- Rectangulo
+FiguraGeometrica <|-- Triangulo
+
+@enduml

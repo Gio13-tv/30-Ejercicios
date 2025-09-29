@@ -1,0 +1,60 @@
+@startuml sdsnaj
+
+interface InformacionProducto {
+  + mostrarInformacion() {abstract}
+  + obtenerTipo() {abstract}
+}
+
+abstract class Paleta {
+  - sabor: String
+  - precio: float
+  + __init__(sabor: String, precio: float)
+  + mostrarInformacion() {abstract}
+  + obtenerTipo() {abstract}
+}
+
+interface BaseAgua {
+  + mostrarBaseAgua() {abstract}
+}
+
+interface BaseCrema {
+  + mostrarTexturaCremosa() {abstract}
+}
+
+class PaletaAgua {
+  - baseAgua: boolean
+  + __init__(sabor: String, precio: float, baseAgua: boolean)
+  + mostrarInformacion()
+  + obtenerTipo()
+  + mostrarBaseAgua()
+}
+
+class PaletaCrema {
+  - cremosa: boolean
+  + __init__(sabor: String, precio: float, cremosa: boolean)
+  + mostrarInformacion()
+  + obtenerTipo()
+  + mostrarTexturaCremosa()
+}
+
+class PaletaMixta {
+  - baseAgua: boolean
+  - cremosa: boolean
+  + __init__(sabor: String, precio: float, baseAgua: boolean, cremosa: boolean)
+  + mostrarInformacion()
+  + obtenerTipo()
+  + mostrarBaseAgua()
+  + mostrarTexturaCremosa()
+}
+
+InformacionProducto <|.. Paleta
+Paleta <|-- PaletaAgua
+Paleta <|-- PaletaCrema
+Paleta <|-- PaletaMixta
+
+BaseAgua <|.. PaletaAgua
+BaseCrema <|.. PaletaCrema
+BaseAgua <|.. PaletaMixta
+BaseCrema <|.. PaletaMixta
+
+@enduml

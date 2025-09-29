@@ -1,0 +1,37 @@
+@startuml pipi
+class GeometricFigure {
+  - name: String
+  + calculateArea(): float
+  + calculatePerimeter(): float
+}
+
+class Circle {
+  - radius: float
+  + calculateArea(): float
+  + calculatePerimeter(): float
+}
+
+class Rectangle {
+  - base: float
+  - height: float
+  + calculateArea(): float
+  + calculatePerimeter(): float
+}
+
+class Triangle {
+  - side1: float
+  - side2: float
+  - side3: float
+  + calculateArea(): float
+  + calculatePerimeter(): float
+}
+
+class InvalidTriangleError {
+  + __init__(message: String)
+}
+
+GeometricFigure <|-- Circle
+GeometricFigure <|-- Rectangle
+GeometricFigure <|-- Triangle
+Triangle ..> InvalidTriangleError 
+@enduml

@@ -1,0 +1,35 @@
+@startuml pupu
+
+class InvalidLevelError {
+  + __init__(message: String)
+}
+
+class InsufficientLevelError {
+  + __init__(message: String)
+}
+
+class Personaje {
+  - nombre: String
+  - nivel: int
+  + __init__(nombre: String, nivel: int)
+  + atacar()
+}
+
+class Jugador {
+  - clase: String
+  + __init__(nombre: String, nivel: int, clase: String)
+  + usarHabilidadEspecial()
+}
+
+class Enemigo {
+  - tipo: String
+  + __init__(nombre: String, nivel: int, tipo: String)
+  + gritar()
+}
+
+Personaje --> InvalidLevelError : raises
+Personaje --> InsufficientLevelError : raises
+Personaje <|-- Jugador
+Personaje <|-- Enemigo
+
+@enduml

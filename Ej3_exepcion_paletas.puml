@@ -1,0 +1,35 @@
+@startuml AIMEP3
+
+class InvalidPriceError {
+  + __init__(message: String)
+}
+
+class InvalidFlavorError {
+  + __init__(message: String)
+}
+
+class Paleta {
+  - sabor: String
+  - precio: float
+  + __init__(sabor: String, precio: float)
+  + mostrarInformacion()
+}
+
+class PaletaAgua {
+  - baseAgua: boolean
+  + __init__(sabor: String, precio: float, baseAgua: boolean)
+  + mostrarBaseAgua()
+}
+
+class PaletaCrema {
+  - cremosa: boolean
+  + __init__(sabor: String, precio: float, cremosa: boolean)
+  + mostrarTexturaCremosa()
+}
+
+Paleta --> InvalidPriceError 
+Paleta --> InvalidFlavorError 
+Paleta <|-- PaletaAgua
+Paleta <|-- PaletaCrema
+
+@enduml

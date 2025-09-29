@@ -1,0 +1,58 @@
+@startuml OYE NANA
+
+abstract class Personaje {
+  - nombre: String
+  - nivel: int
+  + __init__(nombre: String, nivel: int)
+  + atacar() {abstract}
+}
+
+interface HabilidadesMagicas {
+  + lanzarHechizo(hechizo: String) {abstract}
+  + usarMagiaElemental(elemento: String) {abstract}
+}
+
+interface HabilidadesFisicas {
+  + ataqueFisico() {abstract}
+  + defender() {abstract}
+}
+
+class Jugador {
+  - clase: String
+  + __init__(nombre: String, nivel: int, clase: String)
+  + atacar()
+  + ataqueFisico()
+  + defender()
+  + usarHabilidadEspecial()
+}
+
+class Enemigo {
+  - tipo: String
+  + __init__(nombre: String, nivel: int, tipo: String)
+  + atacar()
+  + lanzarHechizo(hechizo: String)
+  + usarMagiaElemental(elemento: String)
+  + gritar()
+}
+
+class PersonajeHibrido {
+  - clase: String
+  + __init__(nombre: String, nivel: int, clase: String)
+  + atacar()
+  + lanzarHechizo(hechizo: String)
+  + usarMagiaElemental(elemento: String)
+  + ataqueFisico()
+  + defender()
+  + mostrarHabilidades()
+}
+
+Personaje <|-- Jugador
+Personaje <|-- Enemigo
+Personaje <|-- PersonajeHibrido
+
+HabilidadesFisicas <|.. Jugador
+HabilidadesMagicas <|.. Enemigo
+HabilidadesMagicas <|.. PersonajeHibrido
+HabilidadesFisicas <|.. PersonajeHibrido
+
+@enduml
