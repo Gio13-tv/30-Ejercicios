@@ -1,4 +1,4 @@
-@startuml polimorfismo2
+@startuml polimorfismo
 class Personaje {
   - nombre : str
   - nivel : int
