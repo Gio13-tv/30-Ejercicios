@@ -1,7 +1,11 @@
 ## Ejercicio 38: Creación del juego Tres en Línea (Tic Tac Toe)
 
 import random
-from IPython.display import clear_output
+import os
+
+# Definimos una función para limpiar la pantalla en cualquier sistema
+def clear_output(wait=False):
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 # --------------------------------------------------------
 # Clase que representa el tablero del juego
@@ -135,7 +139,8 @@ class Juego:
                 print("Esa posición ya está ocupada. Intente otra.")
                 continue
 
-            clear_output(wait=True)
+            # Limpiar pantalla y mostrar tablero actualizado
+            clear_output()
             self.tablero_juego.mostrar_tabla()
 
             # Verificar estado
@@ -170,3 +175,4 @@ if __name__ == "__main__":
             break
         else:
             juego.tablero_juego.reiniciar()
+
